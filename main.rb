@@ -1,11 +1,15 @@
+require 'csv'
+require 'pry'
+
 filepath = 'test.phy'
 
 especieCadenaArray = []
-
 control = []
+
 
 temp = []
 tempN = []
+
 
 ordenColumnas = Array.new(513) {Array.new(4,0)}
 
@@ -38,13 +42,27 @@ especieCadenaArray.each do |array|  #itero dentro de todo el array de arrays
     end
     tempN.length()
     x = x + 1
+
   end
 
   puts array[0] #Nombre especie
   p tempN #Cadena 0y1s
-  puts tempN.length() #Largo de la cadena
-  tempN.clear() #Se limpia temporal
-  puts "************************************"
+
+  CSV.open("result.csv", "a+") do |csv|
+    csv << tempN
+
+   end
+
+   puts tempN.length() #Largo de la cadena
+  tempN = []
+   puts "************************************"
+
+
+
 end
+
+
+  p especieCadenaArrayN
+puts especieCadenaArrayN.length
 
 
