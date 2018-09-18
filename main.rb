@@ -6,7 +6,6 @@ filepath = 'test.phy'
 especieCadenaArray = []
 control = []
 
-
 temp = []
 tempN = []
 
@@ -54,15 +53,6 @@ especieCadenaArray.each do |array|  #itero dentro de todo el array de arrays
    end
 
    puts tempN.length() #Largo de la cadena
-  tempN = []
+   tempN = []
    puts "************************************"
-
-
-
 end
-
-
-  p especieCadenaArrayN
-puts especieCadenaArrayN.length
-
-
