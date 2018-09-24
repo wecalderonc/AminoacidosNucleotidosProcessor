@@ -14,14 +14,12 @@ end
 files = Dir["*.phy"]
 # filepath = 'test.phy'
 
-
 files.each do |filepath|
   especieCadenaArray = []
   control = []
   temp = []
   tempN = []
   ordenColumnas = Array.new(513) {Array.new(4,0)}
-
 
   #Guarda cada línea del texto en un array y los separa entre título y cadena de nucleótidos
   File.readlines(filepath).each do |line|
@@ -35,10 +33,8 @@ files.each do |filepath|
   especieCadenaArray.each do |array|  #itero dentro de todo el array de arrays
 
     temp = array[1].split(//) #dividido cada cadena con el split y lo guardo en temp
-    p temp
     temp = convertToT (temp)
-    p temp
-    # temp2 = tempAnterior[1].split(//) #dividido cada cadena del array anterior
+
     x = 0
     tempN << array[0]
     temp.each do |letter|     #itero dentro de temp para comparar con el control
@@ -64,13 +60,11 @@ files.each do |filepath|
       x = x + 1
     end
     # puts array[0] #Nombre especie
-    p tempN #Cadena 0y1s
-
+    # p tempN #Cadena 0y1s
     CSV.open("#{filepath}.csv", "a+") do |csv|
       csv << tempN
     end
-
-    puts tempN.length() #Largo de la cadena
+    # puts tempN.length() #Largo de la cadena
     tempN = []
    # puts "************************************"
  end
