@@ -4,13 +4,14 @@ require 'pry'
 
 files = Dir["*.phy"]
 # filepath = 'test.phy'
-ordenColumnas = Array.new(513) {Array.new(4,0)}
+
 
 files.each do |filepath|
   especieCadenaArray = []
   control = []
   temp = []
   tempN = []
+  ordenColumnas = Array.new(513) {Array.new(4,0)}
 
 
   #Guarda cada línea del texto en un array y los separa entre título y cadena de nucleótidos
