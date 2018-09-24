@@ -1,6 +1,15 @@
 require 'csv'
 require 'pry'
 
+def convertToT (array)
+  array.map! { |letter|
+    if letter == "U"
+      letter = "T"
+    else
+      letter = letter
+    end
+  }
+end
 
 files = Dir["*.phy"]
 # filepath = 'test.phy'
@@ -21,9 +30,14 @@ files.each do |filepath|
 
   #Guarda cadena de control y divide cada letra en una posíción del array
   control = especieCadenaArray[0][1].split(//)
+  control = convertToT (control)
 
   especieCadenaArray.each do |array|  #itero dentro de todo el array de arrays
+
     temp = array[1].split(//) #dividido cada cadena con el split y lo guardo en temp
+    p temp
+    temp = convertToT (temp)
+    p temp
     # temp2 = tempAnterior[1].split(//) #dividido cada cadena del array anterior
     x = 0
     tempN << array[0]
@@ -61,3 +75,4 @@ files.each do |filepath|
    # puts "************************************"
  end
 end
+
