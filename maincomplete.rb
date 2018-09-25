@@ -34,10 +34,11 @@ files.each do |filepath|
 
     temp = array[1].split(//) #dividido cada cadena con el split y lo guardo en temp
     temp = convertToT (temp)
-
+    headers = ['Especie']
     x = 0
     tempN << array[0]
     temp.each do |letter|     #itero dentro de temp para comparar con el control
+      headers << "Posición" + (x+1).to_s
       if ordenColumnas[x].include? (letter)
         if letter == control[x]
           tempN << 0
@@ -61,7 +62,9 @@ files.each do |filepath|
     end
     # puts array[0] #Nombre especie
     # p tempN #Cadena 0y1s
-    CSV.open("#{filepath}.csv", "a+") do |csv|
+
+    CSV.open("#{filepath}.csv", "a+", :headers => true) do |csv|
+      csv << headers if csv.count.eql? 0
       csv << tempN
     end
     # puts tempN.length() #Largo de la cadena
